@@ -1,19 +1,19 @@
-import express from 'express'
-import { studentsSchema } from '../schemas/students.schema'
+import { Router } from 'express'
+import { studentsSchema } from '../schemas/students.schema.js'
 import {
   validateDeleteStudent,
   validateStudent,
   validateUpdateStudent
-} from '../middlewares/students.middlewares'
+} from '../middlewares/students.middlewares.js'
 import {
   createStudents,
   deleteStudents,
   getStudents,
   updateStudents
-} from '../controllers/students.controller'
-import { validateSchema } from '../schemas/validateSchema.middleware'
+} from '../controllers/students.controller.js'
+import { validateSchema } from '../schemas/validateSchema.middleware.js'
 
-const router = express.Router()
+const router = Router()
 
 router.get('/students', getStudents)
 router.post(
@@ -22,7 +22,7 @@ router.post(
   validateStudent,
   createStudents
 )
-router.update(
+router.put(
   '/students/:id',
   validateSchema(studentsSchema),
   validateUpdateStudent,
