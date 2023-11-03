@@ -7,9 +7,7 @@
   },
   "host": "localhost:6000",
   "basePath": "/",
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "paths": {
     "/students": {
       "get": {
@@ -34,6 +32,21 @@
               "properties": {
                 "name": {
                   "example": "any"
+                },
+                "age": {
+                  "example": 30
+                },
+                "firstSemesterGrade": {
+                  "example": 8
+                },
+                "lastSemesterGrade": {
+                  "example": 7
+                },
+                "teachersName": {
+                  "example": "Rodrigo Pereira"
+                },
+                "roomNumber": {
+                  "example": 12
                 }
               }
             }
@@ -64,6 +77,35 @@
             "in": "path",
             "required": true,
             "type": "string"
+          }
+        ],
+        "parametersTwo": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "age": {
+                  "example": 30
+                },
+                "firstSemesterGrade": {
+                  "example": 8
+                },
+                "lastSemesterGrade": {
+                  "example": 7
+                },
+                "teachersName": {
+                  "example": "Rodrigo Pereira"
+                },
+                "roomNumber": {
+                  "example": 12
+                }
+              }
+            }
           }
         ],
         "responses": {
