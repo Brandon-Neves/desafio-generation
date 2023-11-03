@@ -21,7 +21,7 @@ export async function createStudents(req, res) {
 
   try {
     await db.query(
-      `INSERT INTO students (name, image, "stockTotal", "pricePerDay")
+      `INSERT INTO students (name, age, first_semester_grade, last_semester_grade, teachers_name, room_number)
     VALUES ($1, $2, $3, $4, $5, $6)`,
       [
         name,
@@ -34,7 +34,7 @@ export async function createStudents(req, res) {
     )
     res.sendStatus(201)
   } catch (err) {
-    res.sendStatus(500)
+    res.status(500).send(console.log(err))
   }
 }
 
@@ -52,8 +52,8 @@ export async function updateStudents(req, res) {
   try {
     await db.query(
       `UPDATE students SET name = $1, age = $2, 
-      firstSemesterGrade = $3, lastSemesterGrade = $4, 
-      teachersName = $5, roomNumber = $6 WHERE id = $7;`,
+      first_semester_grade = $3, last_semester_grade = $4, 
+      teachers_name = $5, room_number = $6 WHERE id = $7;`,
       [
         name,
         age,
@@ -66,7 +66,7 @@ export async function updateStudents(req, res) {
     )
     res.sendStatus(200)
   } catch (err) {
-    res.sendStatus(500)
+    res.status(500).send(console.log(err))
   }
 }
 

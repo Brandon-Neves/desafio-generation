@@ -28,8 +28,8 @@ export async function validateUpdateStudent(req, res, next) {
       `SELECT * FROM students WHERE id = $1;`,
       [id]
     )
-    if (studentIsExist.rowCount !== 0) {
-      return res.sendStatus(409)
+    if (studentIsExist.rowCount === 0) {
+      return res.sendStatus(404)
     }
     res.locals.students = students
     next()
